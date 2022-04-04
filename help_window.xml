@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+
+<muclient>
+  <plugin
+     name="Helplist_Miniwindow"
+     author="Nick Gammon"
+     id="588adf89370b6c3e1259ea7e"
+     language="Lua"
+     purpose="Makes a helper window with hyperlinks"
+     date_written="2009-08-12"
+     requires="4.40"
+     version="1.0"
+     save_state="y"
+   >
+    <description trim="y">
+      <![CDATA[
+Creates a window with various helpful commands in it, hyperlinked.
+
+Type 'helplist' to toggle the display of the window on and off.
+]]>
+    </description>
+
+  </plugin>
+
+
+  <!--  Aliases  -->
+
+  <aliases>
+    <alias
+     name="helplist"
+     match="helplist"
+     enabled="y"
+     sequence="100"
+     send_to="12"
+  >
+      <send>
+        active = not active
+        if active then
+        make_helper_window ()
+        else
+        WindowShow (win, false)
+        end -- if
+      </send>
+    </alias>
+  </aliases>
+
+
+  <script>
+    <![CDATA[
+print (GetInfo (57)..'zombieMush\\plugins\\help_window\\help_window.lua')
+dofile (GetInfo (57)..'zombieMush\\plugins\\help_window\\help_window.lua')
+
+
+
+]]>
+  </script>
+
+</muclient>
